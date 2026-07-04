@@ -4,41 +4,98 @@
 <meta charset="UTF-8">
 <title>Pomodoro + Habit Tracker</title>
 <style>
+  * {
+    box-sizing: border-box;
+  }
+
   body {
-    font-family: Arial, sans-serif;
-    max-width: 400px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    max-width: 420px;
     margin: 40px auto;
     text-align: center;
-    background: #f5f5f5;
+    background: linear-gradient(160deg, #fdf2e9, #eef3fb);
+    color: #2d2d2d;
+    padding: 0 16px;
   }
 
   h1 {
-    font-size: 22px;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 24px;
   }
 
   .box {
     background: white;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
   }
 
   #timer {
-    font-size: 48px;
-    margin: 10px 0;
+    font-size: 56px;
+    font-weight: bold;
+    margin: 12px 0;
+    color: #e8823c;
+    letter-spacing: 2px;
   }
 
   button {
     font-size: 14px;
-    padding: 8px 16px;
+    font-weight: 600;
+    padding: 9px 18px;
     margin: 4px;
     cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background: #eef1f6;
+    color: #333;
+    transition: transform 0.1s, background 0.2s;
+  }
+
+  button:hover {
+    background: #e2e7f0;
+  }
+
+  button:active {
+    transform: scale(0.96);
+  }
+
+  .box button:nth-of-type(1),
+  .box button:nth-of-type(2),
+  .box button:nth-of-type(3) {
+    background: #e8823c;
+    color: white;
+  }
+
+  .box button:nth-of-type(1):hover,
+  .box button:nth-of-type(2):hover,
+  .box button:nth-of-type(3):hover {
+    background: #d9752f;
+  }
+
+  .box button:nth-of-type(4),
+  .box button:nth-of-type(5) {
+    background: #7fa88f;
+    color: white;
+  }
+
+  .box button:nth-of-type(4):hover,
+  .box button:nth-of-type(5):hover {
+    background: #6c9480;
   }
 
   #status {
-    color: gray;
-    margin-bottom: 10px;
+    color: #888;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  #sessionCount {
+    font-weight: bold;
+    color: #e8823c;
   }
 
   ul {
@@ -48,18 +105,34 @@
   }
 
   li {
-    padding: 6px 0;
-    border-bottom: 1px solid #ddd;
+    padding: 10px 8px;
+    border-bottom: 1px solid #eee;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+
+  li:hover {
+    background: #f7f7f7;
   }
 
   li.done {
     text-decoration: line-through;
-    color: gray;
+    color: #aaa;
   }
 
   input {
-    width: 70%;
-    padding: 6px;
+    width: 65%;
+    padding: 9px 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #e8823c;
   }
 </style>
 </head>
